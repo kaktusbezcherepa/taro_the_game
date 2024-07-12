@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import './FindYourFate.css';
 
 const FindYourFate = () => {
@@ -53,15 +53,15 @@ const FindYourFate = () => {
   return (
     <motion.div
       className="back"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
       <motion.div 
         className="card-slots"
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.5 }}
       >
         {cardSlots.map((slot, i) => (
@@ -70,9 +70,21 @@ const FindYourFate = () => {
             className="card-slot"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.5 * (i + 1), duration: 0.5 }}
+            transition={{ delay: 0.1 * (i + 1), duration: 0.3 }}
           >
-            {slot && <img src={slot} alt="card" className="card-image"/>}
+            <AnimatePresence>
+              {slot && (
+                <motion.img 
+                  src={slot} 
+                  alt="card" 
+                  className="card-image"
+                  initial={{ opacity: 0, scale: 0.8, rotateY: 90 }}
+                  animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+                  exit={{ opacity: 0, scale: 0.8, rotateY: 90 }}
+                  transition={{ duration: 0.5 }}
+                />
+              )}
+            </AnimatePresence>
           </motion.div>
         ))}
       </motion.div>
@@ -82,7 +94,7 @@ const FindYourFate = () => {
         onKeyPress={handleKeyPress}
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.4, duration: 0.5 }}
+        transition={{ delay: 0.4, duration: 0.3 }}
       >
         <img className="name" src={card} alt="newtaro" />
       </motion.button>
@@ -92,7 +104,7 @@ const FindYourFate = () => {
           onClick={reset}
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.6, duration: 0.5 }}
+          transition={{ delay: 0.6, duration: 0.3 }}
         >
           Reset
         </motion.button>
