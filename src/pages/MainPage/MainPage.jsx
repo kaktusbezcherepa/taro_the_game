@@ -21,7 +21,7 @@ export default function MainPage() {
         await audio.play();
       } catch (err) {
         console.error("Autoplay failed", err);
-        // Listen for the first user interaction
+
         const startAudioOnInteraction = async () => {
           try {
             await audio.play();
@@ -36,21 +36,21 @@ export default function MainPage() {
       }
     };
 
-    // When the component mounts, try to play the audio
+ 
     if (audio.readyState >= 3) {
       tryPlay();
     } else {
       audio.addEventListener('canplaythrough', tryPlay, false);
     }
 
-    // Cleanup
+
     return () => {
       audio.pause();
       audio.removeEventListener('canplaythrough', tryPlay, false);
     };
   }, [volumeValue]);
 
-  // Update the audio volume
+
   const handleAudioVolumeChange = (value) => {
     setVolumeValue(value);
     const audio = audioRef.current;
@@ -59,7 +59,7 @@ export default function MainPage() {
     }
   };
 
-  // Navigate to the game page
+
   const toGame = async () => {
     setIsTransitioning(true);
     const audio = audioRef.current;
@@ -68,7 +68,7 @@ export default function MainPage() {
     navigate("/MainGame");
   };
 
-  // Navigate to the fate page
+
   const toFate = async () => {
     setIsTransitioning(true);
     const audio = audioRef.current;
@@ -77,17 +77,15 @@ export default function MainPage() {
     navigate("/FindYourFate");
   };
 
-  // Close the application window
+
   const closeWin = async () => {
     const audio = audioRef.current;
     if (audio) audio.pause();
     await appWindow.close();
   };
 
-  // Show or hide the settings modal
   const toggleModal = () => setShowModal(!showModal);
 
-  // Handle key down to close modal with Escape key
   const handleKeydown = (event) => {
     if (event.key === "Escape") setShowModal(false);
   };
