@@ -8,13 +8,11 @@ import FindYourFate from "./pages/FindYourFate/FindYourFate";
 function AnimatedRoutes() {
   const location = useLocation();
   return (
-    <AnimatePresence>
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<MainPage />} />
         <Route path="/MainGame" element={<MainGame />} />
         <Route path="/FindYourFate" element={<FindYourFate />} />
       </Routes>
-    </AnimatePresence>
   );
 }
 
