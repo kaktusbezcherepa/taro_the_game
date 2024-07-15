@@ -4,6 +4,8 @@ import { AnimatePresence } from "framer-motion";
 import MainPage from "./pages/MainPage/MainPage";
 import MainGame from "./pages/MainGame/MainGame";
 import FindYourFate from "./pages/FindYourFate/FindYourFate";
+import CustomCursor from './components/Cursor/Cursor';
+import './global.css'
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -21,6 +23,7 @@ function AnimatedRoutes() {
 function App() {
   return (
     <Router>
+      <CustomCursor />
       <AnimatedRoutes />
     </Router>
   );
