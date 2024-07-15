@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from "react-router-dom";
 import './FindYourFate.css';
 import CustomModal from '../../components/modalWin/CustomModal';
+import PageTransition from '../../components/animationBetweenPages/PageAnim';
 
 const FindYourFate = () => {
   const [card, setCard] = useState("/icons/newcoloda2.jpg");
@@ -74,7 +75,7 @@ const FindYourFate = () => {
         transition={{ duration: 1 }}
       >
       </div>
-
+        
       <motion.button onClick={toMainPage} className='back-fate-button'
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -83,7 +84,15 @@ const FindYourFate = () => {
       >
         GO BACK
       </motion.button>
-
+      {/* {showedCards === 3 && (
+        <motion.div className='result-container'
+        initial={{ opacity : 0}}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0}}
+        transition={{ delay: 0.5, duration: 1}}>
+          <div className="result-info"></div>
+        </motion.div>
+      )} */}
       <motion.div
         className="card-slots"
         initial={{ opacity: 0, y: 50 }}
@@ -100,6 +109,7 @@ const FindYourFate = () => {
             exit={{ opacity: 0, scale: 0.9 }}
             transition={{ delay: 0.1 * (i + 1), duration: 0.3 }}
           >
+            
             <AnimatePresence>
               {slot && (
                 <motion.img
@@ -112,6 +122,8 @@ const FindYourFate = () => {
                   transition={{ duration: 0.7 }}
                 />
               )}
+              
+              
             </AnimatePresence>
           </motion.div>
         ))}
@@ -130,7 +142,7 @@ const FindYourFate = () => {
       </motion.button>
 
       {showedCards === 3 && (
-        <div className="test">
+        <div className="reset-button-container">
           <motion.button
             className="reset-button"
             onClick={reset}
@@ -143,6 +155,8 @@ const FindYourFate = () => {
           </motion.button>
         </div>
       )}
+
+      
 
       <CustomModal
         isOpen={isModalOpen}

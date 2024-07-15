@@ -73,7 +73,7 @@ export default function MainPage() {
     setIsTransitioning(true);
     const audio = audioRef.current;
     if (audio) audio.pause();
-    await new Promise((resolve) => setTimeout(resolve, 300));
+    await new Promise((resolve) => setTimeout(resolve, 10));
     navigate("/FindYourFate");
   };
 
