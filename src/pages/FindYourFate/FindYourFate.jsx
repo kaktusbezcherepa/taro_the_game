@@ -12,7 +12,7 @@ const FindYourFate = () => {
   const [showedCards, setShowedCards] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
-  const TOTAL_CARDS = 22;
+  const TOTAL_CARDS = 78;
 
   const navigate = useNavigate();
 
