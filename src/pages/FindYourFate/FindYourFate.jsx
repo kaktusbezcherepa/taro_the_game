@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from "react-router-dom";
 import './FindYourFate.css';
 import CustomModal from '../../components/modalWin/CustomModal';
+import Data from '../../Data';
 import PageTransition from '../../components/animationBetweenPages/PageAnim';
 
 const FindYourFate = () => {
