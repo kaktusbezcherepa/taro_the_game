@@ -5,6 +5,7 @@ import './FindYourFate.css';
 import CustomModal from '../../components/modalWin/CustomModal';
 import data from '../../Data';
 
+
 const FindYourFate = () => {
   const [cardSlots, setCardSlots] = useState(Array(3).fill(null));
   const [availableCards, setAvailableCards] = useState([]);
@@ -29,6 +30,12 @@ const FindYourFate = () => {
 
     const randomIndex = Math.floor(Math.random() * availableCards.length);
     const [selectedCard] = availableCards.splice(randomIndex, 1);
+    const getRandomZeroOrOneEighty = () => {
+      const randomNumber = Math.random(); 
+      return randomNumber < 0.5 ? 0 : 180; 
+    }
+
+    let test = getRandomZeroOrOneEighty()
 
     setCardSlots(prev => {
       const emptyIndex = prev.findIndex(slot => slot === null);
@@ -55,8 +62,8 @@ const FindYourFate = () => {
         animate={{ opacity: 1}}
         exit={{ opacity: 0}}
         transition={{ delay: 0.2, duration: 0.7}}>
-        
           <h2>{hoveredCard.name}</h2>
+          <p><span className='up-position'>Прямое положение: </span>{hoveredCard.description}</p>
         </motion.div>
       )}
       <motion.button 

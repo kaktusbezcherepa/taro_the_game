@@ -4,8 +4,9 @@
   width: 100%;
   height: 100vh;
   filter: blur(2px);
-  background: url('/icons/gameback.jpg') no-repeat center;
-  background-size: cover;
+  /* background: url('/icons/gameback.jpg') no-repeat center;
+  background-size: cover; */
+  background-color: black;
   z-index: -1;
 }
 
@@ -15,6 +16,7 @@
   justify-content: center;
   gap: 5%;
   margin-top: 18%;
+  border: 2px solid white;
 }
 
 .card-slot {
@@ -29,6 +31,7 @@
   width: 100%;
   height: 100%;
   border-radius: 10px;
+  
 }
 
 .image-button {
@@ -79,12 +82,22 @@
   left: 10%;
   height: 30vh;
   width: 80%;
-  background-color: white;
-  color: black;
+  color: white;
   border-radius: 15px;
-  
 }
 
 .taro-info h2{
+  font-size: 30px;
   text-align: center;
+}
+
+.taro-info p{
+  font-size: 18px;
+  text-align: center;
+  margin-top: 2%;
+}
+
+.up-position{
+  
+  font-weight: bold;
 }

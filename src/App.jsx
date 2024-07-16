@@ -23,7 +23,7 @@ function AnimatedRoutes() {
 function App() {
   return (
     <Router>
-      <CustomCursor />
+      {/* <CustomCursor /> */}
       <AnimatedRoutes />
     </Router>
   );
